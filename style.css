@@ -34,9 +34,17 @@ body {
     z-index: 50;
 }
 
-text {
+.x-axis text {
     stroke: none;
     fill: black;
+}
+
+text.drop {
+    font-size: 20px;
+    font-family: 'FontAwesome';
+/*     opacity: .9; */
+/*     stroke: #fff; */
+    cursor: pointer;
 }
 
 .graph-body .line {
