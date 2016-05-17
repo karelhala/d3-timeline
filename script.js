@@ -72,30 +72,15 @@ var timeline = d3.chart.eventDrops()
 
     .eventShape(function (data, index) {
         if(data.details.object === "vmName") {
-            return "circle";
+            return '\uf05d';
         }
-        return "square";
+        return '\uf05c';
     })
 
     .eventZoom(function (data, index) {
         $('.btn').removeClass('active');
     })
 
-    .eventHover(function (el) {
-/*
-//         var series = el.parentNode.firstChild.innerHTML;
-        var elementData = d3.select(el).data()[0];
-        var timestamp = null;
-        var event = null;
-        var object = null;
-        if (typeof el !== "undefined") {
-            timestamp = el.date;
-            event = el.details.event;
-            object = el.details.object;
-            document.getElementById('legend').innerHTML = 'Hovering ' + event + ' from ' + object + ' at ' + timestamp + ' in series "' + '"';
-        }
-*/
-    })
     .eventClick(function (el) {
         $('#legend').html('Clicked on ' + el.details.object);
     })
