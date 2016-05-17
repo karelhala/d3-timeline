@@ -10,9 +10,18 @@ export default (svg, scales, configuration) => function dropsSelector(data) {
     dropLines.each(function dropLineDraw(drop) {
         const drops = d3.select(this).selectAll('.drop').data(drop.data);
 
-        drops.attr("transform", function (d) { return "translate(" + (scales.x(d.date) + 200) + "," + -5 + ")"; });
+        drops.attr("transform", function (d) { return "translate(" + (scales.x(d.date) + 200) + "," + 3 + ")"; });
 
-        const circle = drops.enter()
+        const shape = drops.enter()
+            .append('text')
+            .classed('drop', true)
+            .attr("transform", function (d) {return "translate(" + (scales.x(d.date) + 200) + "," + 3 + ")"; })
+            .attr('fill', configuration.eventColor)
+            .attr('data-toggle', 'tooltip')
+            .attr('title', configuration.eventTooltip)
+            .text(configuration.eventShape);
+
+/*
             .append('path')
             .classed('drop', true)
             .attr("transform", function (d) {return "translate(" + (scales.x(d.date) + 200) + "," + -5 + ")"; })
@@ -23,13 +32,15 @@ export default (svg, scales, configuration) => function dropsSelector(data) {
                       .type(configuration.eventShape)
                       .size(150)
             );
+*/
+
 
         if (configuration.eventClick) {
-            circle.on('click', configuration.eventClick);
+            shape.on('click', configuration.eventClick);
         }
 
         if (configuration.eventHover) {
-            circle.on('mouseover', configuration.eventHover);
+            shape.on('mouseover', configuration.eventHover);
         }
 
         // unregister previous event handlers to prevent from memory leaks
