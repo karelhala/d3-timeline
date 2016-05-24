@@ -11,7 +11,7 @@ $(document).ready(function () {
 var data = [];
 var start = new Date('2016-04-14T04:25:27.663Z');
 var today = new Date('2016-05-02T13:59:06.818Z');
-var one_hour = 6 * 60 * 1000;
+var one_hour = 60 * 60 * 1000;
 var one_day = 24 * 60 * 60 * 1000;
 var one_week = one_day * 7;
 var one_month = one_day * 30;
@@ -36,8 +36,7 @@ var timeline = d3.chart.eventDrops()
     .minScale(0.05)
     .maxScale(1000)
 */
-    .width(1000)
-    .lineHeight(45)
+    .width(1200)
     .margin({
         top: 80,
         left: 200,
@@ -119,7 +118,9 @@ var changeZoom = function (time, button) {
         'container': 'body',
         'placement': 'top'
   });
+/*
   $('.btn').removeClass('active');
   $(button).addClass('active');
+*/
 }
 
