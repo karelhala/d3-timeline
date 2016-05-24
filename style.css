@@ -8,7 +8,7 @@ body {
 }
 
 #chart_placeholder {
-    width: 1000px;
+    width: 1200px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -40,11 +40,17 @@ body {
 }
 
 text.drop {
-    font-size: 20px;
+    font-size: 18px;
     font-family: 'FontAwesome';
-/*     opacity: .9; */
-/*     stroke: #fff; */
+/*     opacity: .7; */
+    stroke: none;
     cursor: pointer;
+}
+
+text.drop:hover {
+    font-size: 18px;
+    stroke-width: 1px;
+
 }
 
 .graph-body .line {
