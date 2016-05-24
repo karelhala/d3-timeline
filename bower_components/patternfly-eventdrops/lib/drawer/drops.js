@@ -21,20 +21,6 @@ export default (svg, scales, configuration) => function dropsSelector(data) {
             .attr('title', configuration.eventTooltip)
             .text(configuration.eventShape);
 
-/*
-            .append('path')
-            .classed('drop', true)
-            .attr("transform", function (d) {return "translate(" + (scales.x(d.date) + 200) + "," + -5 + ")"; })
-            .attr('fill', configuration.eventColor)
-            .attr('data-toggle', 'tooltip')
-            .attr('title', configuration.eventTooltip)
-            .attr('d', d3.svg.symbol()
-                      .type(configuration.eventShape)
-                      .size(150)
-            );
-*/
-
-
         if (configuration.eventClick) {
             shape.on('click', configuration.eventClick);
         }
