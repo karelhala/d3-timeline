@@ -34,7 +34,7 @@ function eventDrops(config = {}) {
             };
 
             const scales = {
-                x: xScale(dimensions.width, [finalConfiguration.start, (finalConfiguration.end)]),
+                x: xScale(dimensions.width, [finalConfiguration.start, new Date(finalConfiguration.end.getTime() + (3600000 * 7))]),
                 y: yScale(data),
             };
 
