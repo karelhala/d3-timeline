@@ -1,5 +1,5 @@
 body {
-    background-color: #fafafa;
+    background-color: #fff;
 }
 
 .zoom-area {
@@ -20,9 +20,10 @@ body {
 }
 
 .line-separator, .x-axis {
-    stroke: #333333;
+    stroke: #d1d1d1;
     fill: none;
     stroke-width: 1px;
+    shape-rendering: crispEdges;
 }
 
 .line-separator:last-child {
@@ -34,9 +35,19 @@ body {
     z-index: 50;
 }
 
+.label {
+    font-weight: 400;
+}
+
 .x-axis text {
     stroke: none;
     fill: black;
+    font-family: 'Open Sans';
+    font-size: 12;
+}
+
+.axes {
+    fill: #fafafa;
 }
 
 text.drop {
@@ -48,8 +59,10 @@ text.drop {
 }
 
 text.drop:hover {
-    font-size: 18px;
-    stroke-width: 1px;
+    shape-rendering: crispEdges;
+    font-size: 22px;
+    stroke-width: .5px;
+    stroke: #fff;
 
 }
 
