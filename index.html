@@ -1,11 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="bower_components/patternfly/dist/css/patternfly.min.css" />
-    <link rel="stylesheet" href="bower_components/patternfly/dist/css/patternfly-additions.min.css" />
-    <link rel="stylesheet" href="bower_components/c3/c3.css" media="all">
-    <link rel="stylesheet" href="style.css">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="bower_components/patternfly/dist/css/patternfly.min.css" />
+        <link rel="stylesheet" href="bower_components/patternfly/dist/css/patternfly-additions.min.css" />
+        <link rel="stylesheet" href="bower_components/c3/c3.css" media="all">
+        <link rel="stylesheet" href="style.css">
+
+    </head>
+
+    <body>
+        <div class="fluid-container">
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <div class="row">
+                <div id="chart_placeholder"></div>
+            </div>
+            <div class='text-center'>
+                <div class='btn-group'>
+                    <button class="btn btn-default" onclick="changeZoom(one_day, this)">Last 24 Hours</button>
+                    <button class="btn btn-default" onclick="changeZoom(one_week, this)">Last 7 Days</button>
+                    <button class="btn btn-default" onclick="changeZoom(one_month, this)">Last 30 Days</button>
+                </div>
+            </div>
+            <br/>
+            <div class='well'>
+                <div style="text-align: center" id="legend"></div>
+            </div>
+        </div>
+    </body>
 
     <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
@@ -17,31 +42,6 @@
     <script src="bower_components/patternfly-eventdrops/dist/eventDrops.js"></script>
     <script src="bower_components/patternfly/dist/js/patternfly.js"></script>
     <script src="data.js"></script> <!-- external file containing json object for data -->
-  </head>
-
-  <body>
-    <div class="fluid-container">
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <div class="row">
-        <div id="chart_placeholder"></div>
-      </div>
-      <div class='text-center'>
-          <div class='btn-group'>
-            <button class="btn btn-default" onclick="changeZoom(one_day, this)">Last 24 Hours</button>
-            <button class="btn btn-default" onclick="changeZoom(one_week, this)">Last 7 Days</button>
-            <button class="btn btn-default" onclick="changeZoom(one_month, this)">Last 30 Days</button>
-          </div>
-      </div>
-      <br/>
-      <div class='well'>
-        <div style="text-align: center" id="legend"></div>
-      </div>
-    </div>
-  </body>
-
-  <script src="script.js"></script>
+    <script src="script.js"></script>
 
 </html>
