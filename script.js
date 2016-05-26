@@ -38,7 +38,7 @@ var timeline = d3.chart.eventDrops()
 */
     .width(1200)
     .margin({
-        top: 80,
+        top: 100,
         left: 200,
         bottom: 10,
         right: 50,
