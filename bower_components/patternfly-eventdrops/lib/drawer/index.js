@@ -36,7 +36,7 @@ export default (svg, dimensions, scales, configuration) => {
         .classed('extremum', true)
         .attr('width', dimensions.width)
         .attr('height', 30)
-        .attr('transform', `translate(${configuration.margin.left}, ${configuration.margin.top - 45})`);
+        .attr('transform', `translate(${configuration.margin.left + 10}, ${configuration.margin.top - 45})`);
 
     configuration.metaballs && metaballs(defs);
 
