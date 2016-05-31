@@ -17,7 +17,9 @@ export default (container, dimensions, scales, configuration, data, callback) =>
         .on("dblclick.zoom", null)
         .on('mousemove', () => {
             var m = d3.mouse(container[0][0]);
-            var pt=[m[0]-210, m[1]];
+            var pt=[m[0]-205, m[1]];
             zoom.center(pt);
         });
 };
+
+// !TODO make sure zoom is correct
