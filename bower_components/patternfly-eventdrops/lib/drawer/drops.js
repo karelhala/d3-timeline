@@ -4,7 +4,7 @@ export default (svg, scales, configuration) => function dropsSelector(data) {
     dropLines.enter()
         .append('g')
         .classed('drop-line', true)
-        .attr('transform', (d, idx) => `translate(10, ${40 + configuration.lineHeight + scales.y(idx)})`)
+        .attr('transform', (d, idx) => `translate(0, ${40 + configuration.lineHeight + scales.y(idx)})`)
         .attr('fill', configuration.eventLineColor);
 
     dropLines.each(function dropLineDraw(drop) {
