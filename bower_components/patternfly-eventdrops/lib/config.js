@@ -6,11 +6,11 @@ const config = {
     end: new Date(),
     minScale: 0,
     maxScale: Infinity,
-    width: 1000,
+    width: 1200,
     margin: {
-        top: 60,
-        left: 200,
-        bottom: 40,
+        top: 100,
+        left: 190,
+        bottom: 10,
         right: 50,
     },
     locale: null,
@@ -29,14 +29,15 @@ const config = {
     eventZoom: null,
     eventClick: null,
     hasDelimiter: true,
-    hasTopAxis: true,
-    hasBottomAxis: (d) => d.length >= 10,
+    hasTopAxis: false,
+    hasBottomAxis: true,
     eventLineColor: 'black',
     eventColor: null,
-    eventShape: 'circle',
+    eventShape: '\uf111',
     eventTooltip: null,
     metaballs: false,
     zoomable: true,
+    marker: true
 };
 
 config.dateFormat = config.locale ? config.locale.timeFormat('%d %B %Y') : d3.time.format('%d %B %Y');
