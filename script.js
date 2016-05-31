@@ -22,7 +22,7 @@ for (var x in json) { //json lives in external file for testing
     data[x].name = json[x].name;
     data[x].data = [];
     for (var y in json[x].data) {
-        data[x].data.push(new Object());
+        data[x].data.push({});
         data[x].data[y].date = new Date(json[x].data[y].date);
         data[x].data[y].details = json[x].data[y].details;
     }
@@ -36,14 +36,7 @@ var timeline = d3.chart.eventDrops()
     .minScale(0.05)
     .maxScale(1000)
 */
-    .width(1200)
-    .margin({
-        top: 100,
-        left: 200,
-        bottom: 10,
-        right: 50,
-    })
-    .hasTopAxis(false)
+
     .eventLineColor(function (data, index) {
         switch (index) {
         case 0:
@@ -55,7 +48,7 @@ var timeline = d3.chart.eventDrops()
         case 3:
             return "#ec7a08";
         case 4:
-            return "#cc0000";
+            return "#3b0083";
         case 5:
             return "#007a87";
         case 6:
@@ -65,13 +58,13 @@ var timeline = d3.chart.eventDrops()
 
     .eventColor(function (data, index) {
         if(data.details.event === "vmPowerOff") {
-            return "#4B0082";
+            return "#cc0000";
         }
     })
 
     .eventShape(function (data, index) {
         if(data.details.object === "vmName") {
-            return '\uf05d';
+            return '\uf10c';
         }
         return '\uf05c';
     })
@@ -89,7 +82,7 @@ var timeline = d3.chart.eventDrops()
                "\nEvent type: " + d.details.event +
                "\nTime: " + d.date;
     })
-    .hasBottomAxis(true);
+
 
 var element = d3.select(chart_placeholder).append('div').datum(data);
 timeline(element);
@@ -123,4 +116,3 @@ var changeZoom = function (time, button) {
   $(button).addClass('active');
 */
 }
-
