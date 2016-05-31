@@ -32,10 +32,8 @@ for (var x in json) { //json lives in external file for testing
 var timeline = d3.chart.eventDrops()
     .end(today)
     .start(today - one_week)
-/*
     .minScale(0.05)
     .maxScale(1000)
-*/
 
     .eventLineColor(function (data, index) {
         switch (index) {
