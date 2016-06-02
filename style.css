@@ -54,7 +54,7 @@ text.drop {
     shape-rendering: crispEdges;
     font-size: 18px;
     font-family: 'FontAwesome';
-    opacity: .7;
+/*     opacity: .7; */
     stroke: none;
     cursor: pointer;
 }
@@ -70,6 +70,7 @@ text.drop:hover {
 .grid {
     fill: #fafafa;
     stroke:#d1d1d1;
+    cursor:ew-resize;
 }
 
 .graph-body .line {
