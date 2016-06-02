@@ -62,7 +62,7 @@ var timeline = d3.chart.eventDrops()
 
     .eventShape(function (data, index) {
         if(data.details.object === "vmName") {
-            return '\uf10c';
+            return '\uf111';
         }
         return '\uf05c';
     })
