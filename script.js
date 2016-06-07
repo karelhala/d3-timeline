@@ -44,13 +44,13 @@ var timeline = d3.chart.eventDrops()
         case 2:
             return "#3f9c35";
         case 3:
-            return "#ec7a08";
+            return "#007a87";
         case 4:
             return "#3b0083";
         case 5:
-            return "#007a87";
+            return "#ec7a08";
         case 6:
-            return "#3b0083";
+            return "#f0ab00";
         }
     })
 
@@ -62,7 +62,7 @@ var timeline = d3.chart.eventDrops()
 
     .eventShape(function (data, index) {
         if(data.details.object === "vmName") {
-            return '\uf111';
+            return '\uf10c';
         }
         return '\uf05c';
     })
