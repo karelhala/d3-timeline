@@ -54,9 +54,9 @@ body {
 
 text.drop {
     text-rendering: auto;
-    font-size: 18px;
+    font-size: 10px;
     font-family: 'FontAwesome';
-/*     opacity: .7; */
+     /*opacity: .7;*/
     stroke: none;
     cursor: pointer;
 }
@@ -67,11 +67,9 @@ text.drop:hover {
     stroke: #fff;
     font-weight: bold;
     paint-order: stroke;
-
 }
 
 .grid {
-    fill: #fafafa;
     stroke:#d1d1d1;
     cursor:ew-resize;
 }
@@ -81,17 +79,15 @@ text.drop:hover {
     padding: 10px;
 }
 
-path {
-    stroke: white;
-    stroke-width: 1px;
-    opacity: 0.7;
-}
-
-.centered {
-    margin: 0 auto;
-}
-
 .tooltip-inner {
     white-space:pre;
     max-width:none;
+}
+
+.timestamp text {
+    fill: #fff;
+}
+.timestamp rect {
+    fill: #000;
+    opacity: .7;
 }
