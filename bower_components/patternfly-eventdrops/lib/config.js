@@ -40,6 +40,6 @@ const config = {
     marker: true
 };
 
-config.dateFormat = config.locale ? config.locale.timeFormat('%d %B %Y') : d3.time.format('%d %B %Y');
+config.dateFormat = config.locale ? config.locale.timeFormat('%x %I:%M %p') : d3.time.format('%x %I:%M %p');
 
 module.exports = config;
