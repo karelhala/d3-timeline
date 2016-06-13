@@ -19,6 +19,16 @@ export default (svg, dimensions, scales, configuration) => {
             .attr('width', dimensions.width)
             .attr('height', dimensions.outer_height);
 
+    defs.append('pattern')
+        .attr('id', 'gridStripes')
+        .attr('width', dimensions.width)
+        .attr('height', 80)
+        .attr('patternUnits', 'userSpaceOnUse')
+        .append('rect')
+            .attr('width', dimensions.width)
+            .attr('height', 40)
+            .attr('fill', '#fafafa');
+
     const gridContainer = svg.append('g')
         .classed('grid', true)
         .attr('transform', `translate(${configuration.margin.left}, ${configuration.margin.top - (configuration.lineHeight - 5)})`);
@@ -39,15 +49,15 @@ export default (svg, dimensions, scales, configuration) => {
         .attr('clip-path', 'url(#drops-container-clipper)')
         .style('filter', 'url(#metaballs)');
 
-    const extremaContainer = svg.append('g')
-        .classed('extremum', true)
+    const stampContainer = svg.append('g')
+        .classed('timestamp', true)
         .attr('width', dimensions.width)
         .attr('height', 30)
         .attr('transform', `translate(${configuration.margin.left}, ${configuration.margin.top - 45})`);
 
     configuration.metaballs && metaballs(defs);
 
-    const marker = markerFactory(gridContainer, dimensions)
+    const marker = markerFactory(gridContainer, stampContainer, scales, dimensions, configuration.dateFormat)
     const lineSeparator = lineSeparatorFactory(axesContainer, scales, configuration, dimensions);
     const axes = axesFactory(axesContainer, scales, configuration, dimensions);
     const labels = labelsFactory(labelsContainer, scales, configuration);
@@ -55,7 +65,6 @@ export default (svg, dimensions, scales, configuration) => {
 
     return data => {
         lineSeparator(data);
-        delimiters(svg, scales, configuration.dateFormat);
         drops(data);
         labels(data);
         axes(data);
