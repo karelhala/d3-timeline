@@ -5,9 +5,11 @@ export const delimiters = (svg, scales, dateFormat) => {
     extremum.selectAll('.maximum').remove();
 
     const domain = scales.x.domain();
+/*
     extremum.append('text')
         .text(dateFormat(domain[0]))
         .classed('minimum', true);
+*/
 
     extremum.append('text')
         .text(dateFormat(domain[1]))
