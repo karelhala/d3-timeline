@@ -38,19 +38,19 @@ var timeline = d3.chart.eventDrops()
     .eventLineColor(function (data, index) {
         switch (index) {
         case 0:
-            return "#0088ce";
-        case 1:
-            return "#00659c";
-        case 2:
-            return "#3f9c35";
-        case 3:
-            return "#007a87";
-        case 4:
-            return "#3b0083";
-        case 5:
             return "#ec7a08";
-        case 6:
+        case 1:
+            return "#3b0083";
+        case 2:
+            return "#007a87";
+        case 3:
             return "#f0ab00";
+        case 4:
+            return "#0088ce";
+        case 5:
+            return "#3f9c35";
+        case 6:
+            return "#00659c";
         }
     })
 
@@ -62,13 +62,13 @@ var timeline = d3.chart.eventDrops()
 
     .eventShape(function (data, index) {
         if(data.details.object === "vmName") {
-            return '\uf10c';
+            return '\uf111';
         }
         return '\uf05c';
     })
 
     .eventZoom(function (data, index) {
-        $('.btn').removeClass('active');
+          $('#zoom-dropdown').html("Custom <span class='caret'></span>");
     })
 
     .eventClick(function (el) {
@@ -109,8 +109,5 @@ var changeZoom = function (time, button) {
         'container': 'body',
         'placement': 'top'
   });
-/*
-  $('.btn').removeClass('active');
-  $(button).addClass('active');
-*/
+  $('#zoom-dropdown').html($(button).html()+" <span class='caret'></span>");
 }
