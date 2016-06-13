@@ -15,14 +15,21 @@
             <br/>
             <br/>
             <br/>
+
+
             <div class="row">
-                <div id="chart_placeholder"></div>
-            </div>
-            <div class='text-center'>
-                <div class='btn-group'>
-                    <button class="btn btn-default" onclick="changeZoom(one_day, this)">Last 24 Hours</button>
-                    <button class="btn btn-default" onclick="changeZoom(one_week, this)">Last 7 Days</button>
-                    <button class="btn btn-default" onclick="changeZoom(one_month, this)">Last 30 Days</button>
+                <div id="chart_placeholder">
+                    <div class="dropdown pull-right">
+                        <button class="btn btn-default dropdown-toggle" id="zoom-dropdown" type="button" data-toggle="dropdown">
+                            Last 7 Days
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="dropdownMenu1">
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#" onclick="changeZoom(one_day, this)">Last 24 Hours</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#" onclick="changeZoom(one_week, this)">Last 7 Days</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#" onclick="changeZoom(one_month, this)">Last 30 Days</a></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
             <br/>
