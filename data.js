@@ -405,7 +405,7 @@ var json = [
       {"date": "2016-04-10T00:39:47.385Z", "details": {"event": "vmPowerOn", "object": "vmName"}},
       {"date": "2016-04-18T13:59:51.548Z", "details": {"event": "vmPowerOn", "object": "vmName"}}
     ]
-  }/*
+  }
 ,
   {
     "name":"Cache mr",
@@ -737,5 +737,4 @@ var json = [
       {"date": "2016-04-18T13:59:51.548Z", "details": {"event": "vmPowerOn", "object": "vmName"}}
     ]
   }
-*/
 ]
