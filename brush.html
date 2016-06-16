@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="bower_components/patternfly/dist/css/patternfly.min.css" />
+        <link rel="stylesheet" href="bower_components/patternfly/dist/css/patternfly-additions.min.css" />
+        <link rel="stylesheet" href="bower_components/c3/c3.css" media="all">
+        <link rel="stylesheet" href="style.css">
+
+    </head>
+
+    <body>
+        <div class="fluid-container">
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+
+
+            <div class="row">
+                <div id="chart_placeholder">
+                    <div class="dropdown">
+                        <button class="btn btn-default dropdown-toggle" id="zoom-dropdown" type="button" data-toggle="dropdown">
+                            Last 7 Days
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="dropdownMenu1">
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#" onclick="changeZoom(one_day, this)">Last 24 Hours</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#" onclick="changeZoom(one_week, this)">Last 7 Days</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#" onclick="changeZoom(one_month, this)">Last 30 Days</a></li>
+                        </ul>
+                    </div>
+<!--                     <div class="btn-group"> -->
+                        <div><input type="range" id="slider"></div>
+                        <button type="button" class="btn btn-default zoombutton" id="zoom_in"><i class="fa fa-plus"></i></button>
+                        <button type="button" class="btn btn-default zoombutton" id="zoom_out"><i class="fa fa-minus"></i></button>
+<!--                     </div> -->
+                </div>
+            </div>
+            <br/>
+            <div class='well'>
+                <div style="text-align: center" id="legend"></div>
+            </div>
+        </div>
+    </body>
+
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="bower_components/bootstrap-select/dist/js/bootstrap-select.js"></script>
+    <script src="bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.js"></script>
+    <script src="bower_components/bootstrap-combobox/js/bootstrap-combobox.js"></script>
+    <script src="bower_components/d3/d3.min.js"></script>
+    <script src="bower_components/c3/c3.min.js"></script>
+    <script src="bower_components/patternfly-eventdrops/dist/eventDrops.js"></script>
+    <script src="bower_components/patternfly/dist/js/patternfly.js"></script>
+    <script src="data.js"></script> <!-- external file containing json object for data -->
+    <script src="script.js"></script>
+
+</html>
