@@ -11,6 +11,7 @@ body {
     width: 1200px;
     margin-left: auto;
     margin-right: auto;
+    position: relative;
 }
 
 .y-tick {
@@ -80,8 +81,8 @@ text.drop:hover {
 }
 
 .tooltip-inner {
-    white-space:pre;
-    max-width:none;
+    white-space: pre;
+    max-width: none;
 }
 
 .timestamp text {
@@ -90,4 +91,35 @@ text.drop:hover {
 .timestamp rect {
     fill: #000;
     opacity: .7;
+}
+
+
+input[type="range"] {
+    width: 236px;
+    position: absolute;
+    right: -97px;
+    top: 195px;
+/*     display: inline; */
+    -webkit-transform: rotate(-90deg);
+}
+
+#zoom_in {
+/*     right: 10; */
+    position: absolute;
+    top: 60px;
+    right: 10px;
+}
+
+
+#zoom_out {
+    position: absolute;
+    top: 320px;
+    right: 9px;
+}
+
+.dropdown {
+    position: absolute;
+    top: 20px;
+    right: 50px;
+/*     z-index: -1; */
 }

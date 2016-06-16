@@ -33,7 +33,7 @@ var timeline = d3.chart.eventDrops()
     .end(today)
     .start(today - one_week)
     .minScale(0.05)
-    .maxScale(1000)
+    .maxScale(800)
 
     .eventLineColor(function (data, index) {
         switch (index) {
