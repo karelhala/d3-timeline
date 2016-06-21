@@ -37,7 +37,8 @@ const config = {
     eventTooltip: null,
     metaballs: false,
     zoomable: true,
-    marker: true
+    marker: true,
+    brushZoom: true
 };
 
 config.dateFormat = config.locale ? config.locale.timeFormat('%x %I:%M %p') : d3.time.format('%x %I:%M %p');

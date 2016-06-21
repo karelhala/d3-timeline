@@ -79,8 +79,7 @@ var timeline = d3.chart.eventDrops()
         return "Object name: " + d.details.object +
                "\nEvent type: " + d.details.event +
                "\nTime: " + d.date;
-    })
-    .brushZoom(false);
+    });
 
 
 var element = d3.select(chart_placeholder).append('div').datum(data);

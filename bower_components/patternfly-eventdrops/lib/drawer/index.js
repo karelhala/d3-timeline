@@ -33,8 +33,6 @@ export default (svg, dimensions, scales, configuration) => {
         .classed('grid', true)
         .attr('transform', `translate(${configuration.margin.left}, ${configuration.margin.top - (configuration.lineHeight - 5)})`);
 
-
-
     const labelsContainer = svg
         .append('g')
         .classed('labels', true)
@@ -54,6 +52,16 @@ export default (svg, dimensions, scales, configuration) => {
         .attr('width', dimensions.width)
         .attr('height', 30)
         .attr('transform', `translate(${configuration.margin.left}, ${configuration.margin.top - 45})`);
+
+/*
+    const brushContainer = svg.append('g')
+                .classed('brush', true)
+                .call(brush)
+            .selectAll("rect")
+                .attr('transform', `translate(${configuration.margin.left}, ${configuration.margin.top - (configuration.lineHeight - 5)})`)
+                .attr("height", dimensions.height);
+*/
+
 
     configuration.metaballs && metaballs(defs);
 

@@ -15,6 +15,10 @@ export default (gridContainer, stampContainer, scales, dimensions, dateFormat) =
             .attr('y1', 0)
             .attr('y2', dimensions.height);
 
+    const brush = d3.svg.brush()
+            .x(scales.x)
+            .on("brushend", brushed);
+
     const domain = scales.x.domain();
 /*
     extremum.append('text')
@@ -31,8 +35,13 @@ export default (gridContainer, stampContainer, scales, dimensions, dateFormat) =
         .attr('transform', `translate(${scales.x.range()[1]})`)
         .attr('text-anchor', 'middle');
 
-
-
+function brushed() {
+    if (!brush.empty()) {
+        console.log(scales.x.domain());
+        console.log(brush.extent());
+        scales.x.domain(brush.extent());
+    }
+}
 
 function moveMarker() {
     var pos = d3.mouse(gridContainer[0][0])[0]
@@ -44,5 +53,3 @@ function moveMarker() {
 }
 
 };
-
-

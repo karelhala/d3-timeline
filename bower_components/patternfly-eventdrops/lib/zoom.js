@@ -5,7 +5,7 @@ export default (container, dimensions, scales, configuration, data, callback) =>
         .on('click', zoomClick);
 
     const slider = d3.selectAll('#slider')
-        .attr("value", scales.x)
+        .attr("value", 1)
         .attr("min", .05)
         .attr("max", 100)
         .attr("step", .5)
@@ -17,42 +17,54 @@ export default (container, dimensions, scales, configuration, data, callback) =>
         .x(scales.x)
         .on('zoom', () => {
             requestAnimationFrame(() => callback(data));
+            slider.property('value', zoom.scale());
         });
 
     if (configuration.eventZoom) {
         zoom.on('zoomend', configuration.eventZoom);
     }
 
-    return container.call(zoom)
+    if (configuration.brushZoom) {
+        return container.call(zoom)
         .on("dblclick.zoom", null)
         .on('mousemove', () => {
             var m = d3.mouse(container[0][0]);
             var pt=[m[0]-205, m[1]];
             zoom.center(pt);
-        });
+        })
+        .on("mousedown.zoom", null);
+    } else {
+        return container.call(zoom)
+            .on("dblclick.zoom", null)
+            .on('mousemove', () => {
+                var m = d3.mouse(container[0][0]);
+                var pt=[m[0]-205, m[1]];
+                zoom.center(pt);
+            });
+    }
 
-        function slided(d){
-            var center = [dimensions.width / 2, dimensions.height / 2],
-            extent = zoom.scaleExtent(),
-            translate = zoom.translate(),
-            translate0 = [],
-            l = [],
-            view = {x: translate[0], y: translate[1], k: zoom.scale()};
+    function slided(d){
+        var center = [dimensions.width / 2, dimensions.height / 2],
+        extent = zoom.scaleExtent(),
+        translate = zoom.translate(),
+        translate0 = [],
+        l = [],
+        view = {x: translate[0], y: translate[1], k: zoom.scale()};
 
-            d3.event.preventDefault();
+        d3.event.preventDefault();
 
-            translate0 = [(center[0] - view.x) / view.k, (center[1] - view.y) / view.k];
-            view.k = d3.select(this).property("value");
-            l = [translate0[0] * view.k + view.x, translate0[1] * view.k + view.y];
+        translate0 = [(center[0] - view.x) / view.k, (center[1] - view.y) / view.k];
+//         view.k = d3.select(this).property("value");
+        l = [translate0[0] * view.k + view.x, translate0[1] * view.k + view.y];
 
-            view.x += center[0] - l[0];
-            view.y += center[1] - l[1];
-            console.log(view.x + ' ' + view.y + ' ' + view.k);
-            interpolateZoom([view.x, view.y], view.k);
-        }
+        view.x += center[0] - l[0];
+        view.y += center[1] - l[1];
+        console.log(view.x + ' ' + view.y + ' ' + view.k);
+        interpolateZoom([view.x, view.y], view.k);
+    }
 
 
-    function interpolateZoom (translate, scale) {
+    function interpolateZoom(translate, scale) {
         var self = this;
         return d3.transition().duration(75).tween("zoom", function () {
             var iTranslate = d3.interpolate(zoom.translate(), translate),
@@ -90,7 +102,7 @@ export default (container, dimensions, scales, configuration, data, callback) =>
         view.x += center[0] - l[0];
         view.y += center[1] - l[1];
         console.log(view.x + ' ' + view.y + ' ' + view.k);
-        d3.selectAll('#slider').property("value", view.k);
+//         d3.select('#slider').property("value", view.k);
         interpolateZoom([view.x, view.y], view.k);
     }
 };
