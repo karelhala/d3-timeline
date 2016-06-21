@@ -6,7 +6,7 @@ export default (container, dimensions, scales, configuration, data, callback) =>
 
     const slider = d3.selectAll('#slider')
         .attr("value", 1)
-        .attr("min", .05)
+        .attr("min", 1)
         .attr("max", 100)
         .attr("step", .5)
         .on("input", slided);
@@ -54,19 +54,19 @@ export default (container, dimensions, scales, configuration, data, callback) =>
         d3.event.preventDefault();
 
         translate0 = [(center[0] - view.x) / view.k, (center[1] - view.y) / view.k];
-//         view.k = d3.select(this).property("value");
+         view.k = d3.select(this).property("value");
         l = [translate0[0] * view.k + view.x, translate0[1] * view.k + view.y];
 
         view.x += center[0] - l[0];
         view.y += center[1] - l[1];
         console.log(view.x + ' ' + view.y + ' ' + view.k);
-        interpolateZoom([view.x, view.y], view.k);
+        interpolateZoom([view.x, view.y], view.k, 0);
     }
 
 
-    function interpolateZoom(translate, scale) {
+    function interpolateZoom(translate, scale, duration) {
         var self = this;
-        return d3.transition().duration(75).tween("zoom", function () {
+        return d3.transition().duration(duration).tween("zoom", function () {
             var iTranslate = d3.interpolate(zoom.translate(), translate),
                 iScale = d3.interpolate(zoom.scale(), scale);
             return function (t) {
@@ -101,8 +101,6 @@ export default (container, dimensions, scales, configuration, data, callback) =>
 
         view.x += center[0] - l[0];
         view.y += center[1] - l[1];
-        console.log(view.x + ' ' + view.y + ' ' + view.k);
-//         d3.select('#slider').property("value", view.k);
-        interpolateZoom([view.x, view.y], view.k);
+        interpolateZoom([view.x, view.y], view.k, 100);
     }
 };
