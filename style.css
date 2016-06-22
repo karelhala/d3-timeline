@@ -101,6 +101,7 @@ input[type="range"] {
     top: 195px;
 /*     display: inline; */
     -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
 }
 
 #zoom_in {
