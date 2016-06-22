@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="bower_components/patternfly/dist/css/patternfly.min.css" />
+    <link rel="stylesheet" href="bower_components/patternfly/dist/css/patternfly-additions.min.css" />
+    <link rel="stylesheet" href="bower_components/c3/c3.css" media="all">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="hawkular-charts.css">
+
+</head>
+
+<body ng-app="myApp">
+    <div class="fluid-container" ng-controller="TimelineController">
+        <div class="row cards-pf">
+            <div class="col-sm-8 col-md-9">
+
+                <div class="page-header page-header-bleed-right">
+                    <div class="actions pull-right">
+                        <a href="#" ng-click="getNewData()"><span class="pficon pficon-refresh"></span> Refresh Results</a>
+                    </div>
+                    <h1>Event Timeline Examples</h1>
+                </div>
+
+                <div class="row row-cards-pf">
+                    <div class="col-xs-12">
+                        <div class="card-pf">
+                            <div class="card-pf-heading">
+                                <div class="dropdown card-pf-time-frame-filter">
+                                    <form name="timeRangeForm">
+                                        <select name="timeRange" ng-model="timeline.timeRange" ng-change="timeChange()"
+                                                ng-options="c.label for c in timeRangeOptions">
+                                        </select>
+                                    </form>
+                                </div>
+
+                                <h2 class="card-pf-title">
+                                    Event Timeline Chart
+                                </h2>
+                            </div>
+                            <div class="card-pf-body">
+                                <div>
+                                    <hk-timeline-chart events="events"
+                                                       start-timestamp="{{timeline.startTime}}"
+                                                       end-timestamp="{{timeline.endTime}}"
+                                    />
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div><!-- /col -->
+
+            <div class="col-sm-4 col-md-3 sidebar-pf sidebar-pf-right">
+                <div class="sidebar-header sidebar-header-bleed-left sidebar-header-bleed-right">
+                    <div class="actions pull-right">
+                        <!--<a href="#">Reset Settings</a>-->
+                    </div>
+                    <h2 class="h5">Chart Settings</h2>
+                </div>
+                <!--<ul class="list-group">-->
+                <!--<li class="list-group-item">-->
+                <!--<label >Show Feature:</label>-->
+                <!--</li>-->
+                <!--</ul>-->
+                <h5>Selected Events</h5>
+                <ul class="list-group">
+                    <li class="list-group-item"
+                        ng-repeat="selectedEvent in selectedEvents track by $index">
+                        <h5 class="list-group-item-heading">{{selectedEvent.provider}}-{{selectedEvent.resource}}</h5>
+                        <p class="list-group-item-text">{{selectedEvent.message}}</p>
+                    </li>
+
+                </ul>
+            </div><!-- /col -->
+        </div><!-- /row -->
+    </div>
+
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="bower_components/bootstrap-select/dist/js/bootstrap-select.js"></script>
+    <script src="bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.js"></script>
+    <script src="bower_components/bootstrap-combobox/js/bootstrap-combobox.js"></script>
+    <script src="bower_components/d3/d3.min.js"></script>
+    <script src="bower_components/c3/c3.min.js"></script>
+    <script src="bower_components/patternfly-eventdrops/dist/eventDrops.js"></script>
+    <script src="bower_components/patternfly/dist/js/patternfly.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/d3-tip/index.js"></script>
+    <script src="bower_components/moment/moment.js"></script>
+    <script src="data.js"></script> <!-- external file containing json object for data -->
+    <script src="hawkular-charts.js"></script>
+    <script src="timeline-brush-chart.js"></script>
+</body>
