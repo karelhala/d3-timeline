@@ -48,13 +48,13 @@
   "moduleType": [
     "globals"
   ],
-  "_release": "bf840c285c",
+  "_release": "8a857f405d",
   "_resolution": {
     "type": "branch",
-    "branch": "timeline-examples",
-    "commit": "bf840c285c7d1c877e03ef679aa8bd0e75aa96b5"
+    "branch": "hawkular-charts-timeline",
+    "commit": "8a857f405d46f68768f7a8c962268f14ae4b9edd"
   },
-  "_source": "git://github.com/mtho11/hawkular-charts.git",
-  "_target": "timeline-examples",
-  "_originalSource": "mtho11/hawkular-charts"
+  "_source": "git://github.com/karelhala/hawkular-charts.git",
+  "_target": "hawkular-charts-timeline",
+  "_originalSource": "karelhala/hawkular-charts"
 }
