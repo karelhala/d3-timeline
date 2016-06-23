@@ -1,0 +1,60 @@
+{
+  "name": "hawkular-charts",
+  "authors": [
+    "Red Hat"
+  ],
+  "description": "Hawkular Metrics Angular Charting Directives.",
+  "keywords": [
+    "angular directives",
+    "time-series",
+    "metrics",
+    "hawkular-charts"
+  ],
+  "license": "APL-2.0",
+  "ignore": [
+    "node_modules",
+    "lib",
+    "img",
+    "*.html",
+    "gulpfile.babel.js",
+    "package.json",
+    ".bowerrc",
+    ".editorconfig",
+    ".gitignore",
+    ".jshintrc",
+    "karma.conf.js",
+    "tsd.json",
+    "typings",
+    "src",
+    "README.adoc",
+    "bower.json",
+    "**/.*"
+  ],
+  "main": [
+    "dist/hawkular-charts.js",
+    "dist/css/hawkular-charts.css"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/hawkular/hawkular-charts.git"
+  },
+  "dependencies": {
+    "angular": "^1.5.0",
+    "d3": "^3.5.0",
+    "moment": "^2.9.0",
+    "d3-tip": "0.6.7"
+  },
+  "homepage": "https://github.com/hawkular/hawkular-charts",
+  "moduleType": [
+    "globals"
+  ],
+  "_release": "bf840c285c",
+  "_resolution": {
+    "type": "branch",
+    "branch": "timeline-examples",
+    "commit": "bf840c285c7d1c877e03ef679aa8bd0e75aa96b5"
+  },
+  "_source": "git://github.com/mtho11/hawkular-charts.git",
+  "_target": "timeline-examples",
+  "_originalSource": "mtho11/hawkular-charts"
+}

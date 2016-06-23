@@ -5,15 +5,18 @@
     <link rel="stylesheet" href="bower_components/patternfly/dist/css/patternfly.min.css" />
     <link rel="stylesheet" href="bower_components/patternfly/dist/css/patternfly-additions.min.css" />
     <link rel="stylesheet" href="bower_components/c3/c3.css" media="all">
+    <link rel="stylesheet" href="bower_components/hawkular-charts/dist/css/hawkular-charts.css">
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="hawkular-charts.css">
 
 </head>
 
 <body ng-app="myApp">
     <div class="fluid-container" ng-controller="TimelineController">
         <div class="row cards-pf">
-            <div class="col-sm-8 col-md-9">
+            <div class="col-sm-0 col-md-1">
+                &nbsp;
+                </div>
+            <div class="col-sm-7 col-md-8">
 
                 <div class="page-header page-header-bleed-right">
                     <div class="actions pull-right">
@@ -37,15 +40,35 @@
                                 <h2 class="card-pf-title">
                                     Event Timeline Chart
                                 </h2>
+                                <ul>
+                                    <li>
+                                        Click and drag on both graphs for zoom in.
+                                    </li>
+                                    <li>
+                                        Drag zoomed area on lower context chart to change area of zoom. Resize zoom area on this chart.
+                                    </li>
+                                    <li>
+                                        Hover over items to see their description.
+                                    </li>
+                                    <li>
+                                        Double click on each alert to select it.
+                                    </li>
+                                </ul>
                             </div>
                             <div class="card-pf-body">
-                                <div>
+                                <div style="width: 94%">
                                     <hk-timeline-chart events="events"
                                                        start-timestamp="{{timeline.startTime}}"
                                                        end-timestamp="{{timeline.endTime}}"
-                                    />
+                                    ></hk-timeline-chart>
                                 </div>
-
+                                <div style="width:98.2%; height: 75px; margin-left: -70px; margin-top: -48px">
+                                    <hk-context-chart data="overviewData"
+                                                      show-y-axis-values= "false"
+                                                      start-timestamp="{{contextTime.startTime}}"
+                                                      end-timestamp="{{contextTime.endTime}}">
+                                    </hk-context-chart>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -90,7 +113,7 @@
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/d3-tip/index.js"></script>
     <script src="bower_components/moment/moment.js"></script>
+    <script src="bower_components/hawkular-charts/dist/hawkular-charts.js"></script>
     <script src="data.js"></script> <!-- external file containing json object for data -->
-    <script src="hawkular-charts.js"></script>
     <script src="timeline-brush-chart.js"></script>
 </body>

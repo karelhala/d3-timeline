@@ -130,3 +130,8 @@ input[type="range"] {
   fill-opacity: .125;
   shape-rendering: crispEdges;
 }
+
+.brush rect.extent {
+    fill: rgba(0, 125, 199, 0.8);
+    shape-rendering: crispEdges;
+}
